@@ -1,0 +1,4 @@
+baseURL = 'https://felixhelbing.github.io/'
+languageCode = 'en-us'
+title = '-_-'
+buildFuture = true

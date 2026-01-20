@@ -1,0 +1,16 @@
+{{ partial "header.html" . }}
+<main class="by_date">
+{{ with .GetPage "" }}
+  {{ range ((where .RegularPages "Date" "gt" (time.AsTime "0001-01-01")).GroupByDate "200601") }}
+    <h2>{{ .Key }}</h2>
+    <ul>
+    {{ range .Pages }}
+      {{ if .Date }}
+      <li><span>{{ .PublishDate.Format "02" }}</span><a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a></li>
+      {{ end }}
+    {{ end }}
+    </ul>
+  {{ end }}
+{{ end }}
+</main>
+{{ partial "footer.html" . }}

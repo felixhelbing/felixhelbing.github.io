@@ -1,0 +1,5 @@
+<h1>{{ .Title | markdownify }}</h1>
+{{ if gt .Date.Unix (time "0001-01-01").Unix }}
+  <p>{{ .Date.Format "20060102" }}</p>
+{{ end }}
+{{ .Content }}
